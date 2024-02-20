@@ -48,6 +48,7 @@ int main() {
             }
         }
     cout << "you got " << kinda << " numbers right but in wrong place" << endl;
+    //player list printed so that player can use it for reference
     cout << play[0] << play[1] << play[2] << play[3] << endl;
     guesses++;
     }
