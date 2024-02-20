@@ -1,3 +1,4 @@
+//basically c version of imports
 #include <iostream>
 #include <random>
 #include <vector> 
@@ -7,8 +8,8 @@ using namespace std;
 
 int main() {
     cout << "Mastermind in C++ let's go" << endl;
+    //initialising and generating the actual list
     vector<int> seq (4);
-    vector<int> play (4);
     for (int x = 0; x != 4; ++x) {
         int g = rand() % 10;
         while (find(seq.begin(),seq.end(), g) != seq.end() or g == 0) {
@@ -17,13 +18,15 @@ int main() {
         seq[x] = g;
     };
     int guesses = 0;
+    //main loop which is broken once guess list matches actual list
     while (true) {
         int correct = 0;
         int kinda = 0;
+        //for initialising and resetting player's guesses
         vector<int> play (4);
-        play[0] = 0; play[1] = 0; play[2] = 0; play[3] = 0;
         for (int x = 0; x != 4; ++x) {
         cout << "enter number you think is in " << x+1 << "th place of sequence" << endl;
+        //player's guess
         int y;
         cin >> y;
         while (find(play.begin(), play.end(), y) != play.end() or y < 1 or y > 9) {
